@@ -1,0 +1,71 @@
+﻿.demo-filter {
+	overflow: hidden;
+}
+
+.demo-filter li {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.demo-filter li.space {
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.demo-filter a {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+
+.demo-filter a i {
+	display: block;
+	float: left;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	background: #fff;
+	color: #797979;
+	margin-right: 20px;
+	font-size: 16px;
+	text-align: center;
+	-webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.demo-filter a span {
+	display: block;
+	float: left;
+	-webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.demo-filter a.active span,
+.demo-filter a.active i {
+	color: #2196f3;
+}
+
+.link {
+	display: block;
+	margin-bottom: 30px;
+	color: #333;
+}
+
+.link:hover {
+	opacity: 0.7;
+}
+
+.link img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 10px #d7d8d9;
+}

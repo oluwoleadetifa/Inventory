@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+	
+<!-- Mirrored from preview.erilisdesign.com/html/nantria/shortcodes-tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2019 10:33:32 GMT -->
+<head>
+	
+		<title>Mul-T-lock | Events</title>
+		
+		<!-- META DATA -->
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		
+		<!-- CSS Global Compulsory -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		
+		<!-- CSS Implementing Plugins -->
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="css/ionicons.min.css" type="text/css">
+		<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css">
+		<link rel="stylesheet" href="css/swiper.min.css" type="text/css">
+		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+		<link rel="stylesheet" href="css/select2.min.css">
+		<link rel="stylesheet" href="css/vegas.min.css">
+
+		<link rel="stylesheet" href="css/custom.css">
+				
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+		
+		<!--[if lt IE 11]>
+			<link rel="stylesheet" type="text/css" href="css/ie.css">
+		<![endif]-->
+		
+		<!-- FONTS -->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic%7CRoboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+		
+		<!-- JS -->
+		<script type="text/javascript" src="js/modernizr.js"></script>
+		
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="apple-touch-icon" sizes="48x48" href="images/favicon-48x48.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/favicon.png">
+
+	</head>
+	<body class="smooth-scroller">
+	
+		<div id="preloader">
+			<div id="loading-animation"></div>
+		</div>
+
+		<div class="main-container">
+		
+			<div id="top"></div>
+			
+			<section class="section">
+				<div class="container">
+				
+					<h4 class="heading-uppercase text-center mb-50">Event</h4>
+					<div class="row mb-80">
+						<div class="col-md-10 col-md-offset-1">
+							<table class="table table-striped mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+                                        <th>Date added</th>
+										<th>Username</th>
+										<th>Task</th>
+										<th>Item</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>1</th>
+										<td>24/04/2021</td>
+										<td>le.wole</td>
+										<td>
+                                            <details>
+                                                <summary style="color: brown;">
+                                                    <strong>Install camera</strong>
+                                                </summary>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            Deadline:
+                                                        </th>
+                                                        <td>
+                                                            26/04/2021
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            User:
+                                                        </th>
+                                                        <td>
+                                                            Mr Umoru
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Status:
+                                                        </th>
+                                                        <td>
+                                                            Completed
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </details>
+                                        </td>
+                                        <td>
+                                            <details>
+                                                <summary style="color: brown;">
+                                                    <strong>Cable</strong>
+                                                </summary>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            Quantity:
+                                                        </th>
+                                                        <td>
+                                                            200
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                           Unit type:
+                                                        </th>
+                                                        <td>
+                                                            meters
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </details>
+                                        </td>
+									</tr>
+								</tbody>
+							</table>
+                            
+                            <button id="AddEvent" onclick="AddEvent()">Add new data</button>
+							<iframe id="foraddevent" data-src = "add_event.html" src="about:blank" width="800" height="500" style="display: none;"></iframe>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			
+			<a class="backToTop scrollto" href="#"><i class="fa fa-angle-up"></i></a>
+			
+		</div>
+
+		<!-- JS -->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/plugins.js"></script>
+
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+
+<script>
+function AddEvent(){
+	$('iframe').removeAttr('style')
+	var iframe = $('#foraddevent');
+	iframe.attr("src", iframe.data("src"));
+}
+
+</script>
+<!-- Mirrored from preview.erilisdesign.com/html/nantria/shortcodes-tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2019 10:33:32 GMT -->
+</html>
