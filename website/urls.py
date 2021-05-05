@@ -5,5 +5,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-                  path('', views.IndexView.as_view(), name='website.index')
+                  path('', views.IndexView.as_view(), name='website.index'),
+                  path('event/', views.EventView.as_view(), name='website.event'),
+                  path('add_event/', views.AddEvent(), name='website.add_event')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
