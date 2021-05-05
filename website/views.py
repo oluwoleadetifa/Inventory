@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 class IndexView(View):
-    template_name = 'website/templates/index.html'
+    template_name = 'index.html'
     user = None
     context = {}
 
@@ -20,7 +20,7 @@ class IndexView(View):
 
 
 class EventView(View):
-    template_name = 'website/templates/event.html'
+    template_name = 'events.html'
     user = None
     context = {}
 
@@ -36,7 +36,7 @@ class EventView(View):
 
 
 class AddEvent(View):
-    template_name = 'website/templates/add_event.html'
+    template_name = 'add_event.html'
     user = None
     context = {}
 
