@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     {% block title %}{% endblock %}
 
@@ -14,6 +14,7 @@
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/style-indigo.css" %}">
 
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css">
@@ -25,16 +26,7 @@
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}" type="text/css">
     <link rel="stylesheet" href="{% static "css/select2.min.css" %}">
     <link rel="stylesheet" href="{% static "css/vegas.min.css" %}">
-
     <link rel="stylesheet" href="{% static "css/custom.css" %}">
-
-    <!-- SCRIPTS -->
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="{% static "js/respond.min.js" %}"></script>
-
-    <!--[if lt IE 11]>
-    <link rel="stylesheet" type="text/css" href="{% static "css/ie.css" %}">
-    <![endif]-->
 
     <!-- FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic%7CRoboto:400,300,100,500,700,900'
@@ -48,8 +40,33 @@
     <link rel="mul-T-lock-icon" href="{% static "images/favicon.png" %}">
     <link rel="mul-T-lock-icon" sizes="48x48" href={% static "images/favicon-48x48.png" %}>
     <link rel="mul-T-lock-icon" sizes="114x114" href="{% static "images/favicon.png" %}">
-</head>
-<body>
 
+    {% block head %}{% endblock %}
+</head>
+<body class="smooth-scroller">
+
+
+<div id="preloader">
+    <div id="loading-animation"></div>
+</div>
+
+<div class="main-container">
+
+    <div id="top"></div>
+
+
+    {% block content %}{% endblock %}
+
+    <a class="backToTop scrollto" href="#"><i class="fa fa-angle-up"></i></a>
+
+</div>
+
+<!-- JS -->
+<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/plugins.js" %}"></script>
+<script type="text/javascript" src="{% static "js/main.js" %}"></script>
+
+{% block scripts %}{% endblock %}
 </body>
 </html>

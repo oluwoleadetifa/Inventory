@@ -1,19 +1,16 @@
 {% extends 'layout/base.html' %}
+
+
 {% load static %}
 
 {% block title %}
-    <title> {{ setting.name }} | login</title>
+    <title> login</title>
 {% endblock %}
-<body class="smooth-scroller">
 
-<div id="preloader">
-    <div id="loading-animation"></div>
-</div>
+{% block head %}
+{% endblock %}
 
-<div class="main-container">
-
-    <div id="top"></div>
-
+{% block content %}
     <section id="login" class="intro-section fullscreen-element">
         <div class="overlay">
             <div class="overlay-wrapper">
@@ -31,11 +28,15 @@
 
                             <div class="background-white p-30">
                                 <h3 class="heading-uppercase text-center mb-40">Login to itinerary</h3>
-                                <form class="mb-0">
-                                    <input type="name" id="inputname" class="form-control input-border-bottom"
-                                           placeholder="Username" required>
-                                    <input type="password" id="inputPassword" class="form-control input-border-bottom"
-                                           placeholder="Password" required>
+                                <form class="mb-0" method="post">
+                                    {% csrf_token %}
+                                    <input type="text" id="Username" class="form-control input-border-bottom"
+                                           placeholder="Username" required value="" name="username">
+                                    <label for="Username"></label>
+                                    <input type="password" id="Password"
+                                           class="form-control input-border-bottom"
+                                           placeholder="Password" required value="" name="password">
+                                    <label for="Password"></label>
                                     <button class="btn btn-border btn-noradius btn-fullwidth m-0" type="submit">Sign
                                         in
                                     </button>
@@ -51,8 +52,8 @@
                                             <a href="#" class="display-block text-right mt-10">Forgot password?</a>
                                         </div>
                                     </div>
-                                </form><!-- /form -->
-                            </div><!-- /card-container -->
+                                </form>
+                            </div>
 
                         </div>
                     </div>
@@ -60,7 +61,7 @@
             </div>
         </div>
     </section>
+{% endblock %}
+{% block scripts %}
 
-    <a class="backToTop scrollto" href="#"><i class="fa fa-angle-up"></i></a>
-
-</div>
+{% endblock %}

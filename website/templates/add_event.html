@@ -1,135 +1,72 @@
-<!DOCTYPE html>
-<html lang="en-US" class="no-js">
-	
-<!-- Mirrored from preview.erilisdesign.com/html/nantria/shortcodes-form-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2019 10:33:31 GMT -->
-<head>
-	
-		<title>Shortcodes - Form Inputs | Nantria</title>
-		
-		<!-- META DATA -->
-		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="author" content="">
-		
-		<!-- CSS Global Compulsory -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/style.css">
-		
-		<!-- CSS Implementing Plugins -->
-		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-		<link rel="stylesheet" href="css/ionicons.min.css" type="text/css">
-		<link rel="stylesheet" href="css/animate.min.css" type="text/css">
-		<link rel="stylesheet" href="css/flexslider.css" type="text/css">
-		<link rel="stylesheet" href="css/swiper.min.css" type="text/css">
-		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-		<link rel="stylesheet" href="css/select2.min.css">
-		<link rel="stylesheet" href="css/vegas.min.css">
+{% extends 'layout/base.html' %}
+{% load static %}
 
-		<link rel="stylesheet" href="css/custom.css">
-		
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="js/respond.min.js"></script>
-		<![endif]-->
-		
-		<!--[if lt IE 11]>
-			<link rel="stylesheet" type="text/css" href="css/ie.css">
-		<![endif]-->
-		
-		<!-- FONTS -->
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic%7CRoboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-		
-		<!-- JS -->
-		<script type="text/javascript" src="js/modernizr.js"></script>
-		
-		<!-- FAVICONS -->
-		<link rel="shortcut icon" href="images/favicon.ico">
-		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-	</head>
-	<body class="smooth-scroller">
-	
-		<div id="preloader">
-			<div id="loading-animation"></div>
-		</div>
+{% block content %}
+    <section class="section pb-70">
+        <div class="container">
 
-		<div class="main-container">
-			<section class="section pb-70">	
-				<div class="container">
-					
-					<div class="row">
+            <div class="row">
 
-						<div class="col-md-6 col-md-offset-3 mb-55">
+                <div class="col-md-6 col-md-offset-3 mb-55">
 
-							<div class="pb-50">
-								<h4 class="heading-uppercase text-center">Add event</h4>
-							</div>
+                    <div class="pb-50">
+                        <h4 class="heading-uppercase text-center">Add event</h4>
+                    </div>
 
-							<form>
-								<div class="form-group">
-									<label for="Username">Username</label>
-									<input type="name" class="form-control" id="Username" placeholder="example: lewole">
-								</div><hr>
+                    <form id="" method="post" action="{% url "website.add_event" %}">
+                        <div class="form-group">
+                            <label for="Username">Username</label>
+                            <input type="text" class="form-control" name="Username" placeholder="example: lewole"
+                                   id="Username">
+                        </div>
+                        <hr>
 
-                                <div class="col-md-12">
-                                    <h5 class="heading-uppercase text-center">Task</h5>
-                                </div>
-								<div class="form-group">
-									<label for="task_name">Task name</label>
-									<input type="name" class="form-control" id="task_name" placeholder="Task name">
-								</div>
-                                <div class="form-group">
-									<label for="Deadline">Deadline</label>
-									<input type="date" class="form-control" id="Deadline" placeholder="24-03-2021">
-								</div>
-                                <div class="form-group">
-									<label for="User">User assigned</label>
-									<input type="name" class="form-control" id="User" placeholder="example: Mr umoru">
-								</div><hr>
+                        <div class="col-md-12">
+                            <h5 class="heading-uppercase text-center">Task</h5>
+                        </div>
+                        <div class="form-group">
+                            <label for="task_name">Task name</label>
+                            <input type="text" class="form-control" name="task_name" placeholder="Task name"
+                                   id="task_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Deadline">Deadline</label>
+                            <input type="date" class="form-control" name="Deadline" placeholder="24-03-2021"
+                                   id="Deadline">
+                        </div>
+                        <div class="form-group">
+                            <label for="User">User assigned</label>
+                            <input type="text" class="form-control" name="User" placeholder="example: Mr umoru"
+                                   id="User">
+                        </div>
+                        <hr>
 
-                                <div class="col-md-12">
-                                    <h5 class="heading-uppercase text-center">Item</h5>
-                                </div>
+                        <div class="col-md-12">
+                            <h5 class="heading-uppercase text-center">Item</h5>
+                        </div>
 
-								<div class="form-group">
-									<label for="item_name">Item name</label>
-									<input type="name" class="form-control" id="item_name" placeholder="Item name">
-								</div>
-                                <div class="form-group">
-									<label for="item-quantity">Quantity</label>
-									<input type="number" min="0" class="form-control" id="item-quantity" placeholder="0">
-								</div>
-                                <div class="form-group">
-									<label for="Unit_type">Unit type</label>
-									<input type="name" class="form-control" id="Unit_type" placeholder="example: meters">
-								</div>
-								<button type="submit" class="btn btn-noradius m-0">Submit</button>
-							</form>
-						</div>
+                        <div class="form-group">
+                            <label for="item_name">Item name</label>
+                            <input type="text" class="form-control" name="item_name" placeholder="Item name"
+                                   id="item_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-quantity">Quantity</label>
+                            <input type="number" min="0" class="form-control" name="item-quantity" placeholder="0"
+                                   id="item-quantity">
+                        </div>
+                        <div class="form-group">
+                            <label for="Unit_type">Unit type</label>
+                            <input type="text" class="form-control" name="Unit_type" placeholder="example: meters"
+                                   id="Unit_type">
+                        </div>
+                        <button type="submit" class="btn btn-noradius m-0">Submit</button>
+                    </form>
+                </div>
 
-					</div>
+            </div>
 
-				</div>
-			</section>
-			
-			<a class="backToTop scrollto" href="#"><i class="fa fa-angle-up"></i></a>
-			
-		</div>
-
-		<!-- JS -->
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/plugins.js"></script>
-
-		<script type="text/javascript" src="js/main.js"></script>
-
-	</body>
-
-<!-- Mirrored from preview.erilisdesign.com/html/nantria/shortcodes-form-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2019 10:33:31 GMT -->
-</html>
+        </div>
+    </section>
+{% endblock %}
