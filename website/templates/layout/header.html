@@ -1,5 +1,12 @@
 {% load static %}
 
+<style>
+    #hello-msg{
+        font-size: 18px;
+        color: white;
+    }
+</style>
+
 <header class="main-header style-1 transparent" style="background-image: url('{% static "demo/images/shortcodes.jpg" %}');">
     <div class="header-wrapper">
 
@@ -12,10 +19,15 @@
                             <i class="ion-navicon"></i>
                         </button>
                         <div class="header-logo">
-                            <a href="{% url "website.index" %}">
+                            <a href="#" style="text-decoration: none">
                                 <h2 style="color: aliceblue;">MUL-T-LOCK</h2>
                             </a>
                         </div>
+                    </div>
+
+                    <div class="nav-block right block-widgets white pb-0">
+                        <span id="hello-msg">Hello, {{ request.user }} </span>
+                        <span><a href="{%url 'website:website.logout' %}" style="text-decoration: none" >logout</a> </span>
                     </div>
                 </div>
             </div>

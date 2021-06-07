@@ -7,12 +7,6 @@
 {% endblock %}
 
 {% block head %}
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-
 {% endblock %}
 
 {% block content %}
@@ -29,7 +23,7 @@
                         <tr>
                             <th>#</th>
                             <th>Date added</th>
-                            <th>Username</th>
+                            <th>Creator</th>
                             <th>Task</th>
                             <th>Item</th>
                         </tr>
@@ -55,7 +49,7 @@
                                         </tr>
                                         <tr>
                                             <th>
-                                                User:
+                                                Assigned to:
                                             </th>
                                             <td>
                                                 Mr Umoru
@@ -101,11 +95,85 @@
                         </tbody>
                     </table>
 
-                    <input type="button" onclick="AddEvent();ChangeName()" value="Add new data" id="myButton1">
 
-                    <iframe id="test" style="border: none;" height="494" width="1100"
-                            src="{% url "website.add_event" %}" class="hidden"></iframe>
                 </div>
+                <button type="button" class="btn-primary btn-lg col-md-2 col-md-offset-2 btn-rounded" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Add new Event
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="section pb-70 modal" id="myModal">
+        <div class="container ">
+
+            <div class="row modal-dialog">
+
+                <div class="col-md-6 col-md-offset-3 mb-55 modal-content">
+
+                    <div class="pb-50 modal-header">
+                        <h4 class="heading-uppercase text-center">Add event</h4>
+                    </div>
+
+                    <form method="post" action="{% url "website:website.event" %}" class="modal-body">
+                        {% csrf_token %}
+{#                        <div class="form-group">#}
+{#                            <label for="Name">Creator</label>#}
+{#                            <input type="text" class="form-control" name="Name" placeholder="example: lewole"#}
+{#                                   id="Name">#}
+{#                        </div>#}
+                        <hr>
+
+                        <div class="col-md-12">
+                            <h5 class="heading-uppercase text-center">Task</h5>
+                        </div>
+{#                        <div class="form-group">#}
+{#                            <label for="task_name">Task name</label>#}
+{#                            <input type="text" class="form-control" name="task_name" placeholder="Task name"#}
+{#                                   id="task_name">#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label for="Deadline">Deadline</label>#}
+{#                            <input type="date" class="form-control" name="Deadline" placeholder="24-03-2021"#}
+{#                                   id="Deadline">#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label for="User">Assigned to</label>#}
+{#                            <input type="text" class="form-control" name="User" placeholder="example: Mr umoru"#}
+{#                                   id="User">#}
+{#                        </div>#}
+                        {% include 'includes/_form.html' with form=event_form %}
+                        <hr>
+
+                        <div class="col-md-12">
+                            <h5 class="heading-uppercase text-center">Item</h5>
+                        </div>
+
+{#                        <div class="form-group">#}
+{#                            <label for="item_name">Item name</label>#}
+{#                            <input type="text" class="form-control" name="item_name" placeholder="Item name"#}
+{#                                   id="item_name">#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label for="item-quantity">Quantity</label>#}
+{#                            <input type="number" min="0" class="form-control" name="quantity" placeholder="0"#}
+{#                                   id="item-quantity">#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                            <label for="Unit_type">Unit type</label>#}
+{#                            <input type="text" class="form-control" name="unit_type" placeholder="example: meters"#}
+{#                                   id="Unit_type">#}
+{#                        </div>#}
+
+                        {% include 'includes/_form.html' with form=item_form %}
+                        {% include 'includes/_form.html' with form=inventory_form %}
+
+                        <button type="submit" class="btn btn-noradius m-0">Submit</button>
+                    </form>
+                </div>
+
             </div>
 
         </div>
@@ -115,17 +183,30 @@
 
 {% block scripts %}
     <script>
-        function AddEvent() {
-            $('iframe').toggleClass('hidden')
-        }
 
-        function ChangeName() {
-            var buttn = document.getElementById("myButton1");
-            if (buttn.value === "Close") {
-                buttn.value = "Add new table";
-            } else {
-                buttn.value = "Close";
-            }
-        }
+        $('[type=submit]').on('click', function () {
+
+            $('form').submit(function (event){
+               //stop form from submitting regularly
+               event.preventDefault();
+            });
+
+            //get action
+            let actionFile = $('form').attr('action');
+
+            //Serialize form control values to be sent to the server
+            let formValues = $('form').serializeArray();
+            formValues.push({name: 'csrfmiddlewaretoken', value:$('input[name=csrfmiddlewaretoken]').val()});
+
+            //Send the form data using post
+            $.post(actionFile, formValues)
+            .done(function(success){
+                alert("Submit success!.");
+            })
+            .fail(function(error){
+                alert(error.responseJSON.details);
+            });
+        });
+
     </script>
 {% endblock %}

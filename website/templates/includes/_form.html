@@ -1,0 +1,19 @@
+{% load my_template_filters %}
+
+{% for hidden in form.hidden_fields %}
+    {{ hidden }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+    <div class="form-group">
+        {% if field|which_field == "BooleanField" %}
+{#            implement checkbox#}
+        {% elif field|which_field == "ModelChoiceField" %}
+            <label for="{{ field.auto_id }}">{{ field.label }}</label>
+            {{ field }}
+        {% else %}
+            <label for="{{ field.auto_id }}">{{ field.label }}</label>
+            {{ field }}
+        {% endif %}
+    </div>
+{% endfor %}

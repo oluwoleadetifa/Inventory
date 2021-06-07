@@ -5,9 +5,10 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from . import views
 
+app_name = "website"
+
 urlpatterns = [
-                  path('', views.IndexView.as_view(), name='website.index'),
+                  path('', views.IndexView, name='website.index'),
+                  path('logout/', views.logoutUser, name='website.logout'),
                   path('event/', views.EventView.as_view(), name='website.event'),
-                  path('add_event/', TemplateView.as_view(template_name='add_event.html'), name='website.add_event'),
-                  path('accounts/', include('django.contrib.auth.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

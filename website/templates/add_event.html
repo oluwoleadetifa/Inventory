@@ -14,11 +14,12 @@
                         <h4 class="heading-uppercase text-center">Add event</h4>
                     </div>
 
-                    <form id="" method="post" action="{% url "website.add_event" %}">
+                    <form method="post" action="{% url "website.add_event" %}">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <label for="Username">Username</label>
-                            <input type="text" class="form-control" name="Username" placeholder="example: lewole"
-                                   id="Username">
+                            <label for="Name">Creator</label>
+                            <input type="text" class="form-control" name="Name" placeholder="example: lewole"
+                                   id="Name">
                         </div>
                         <hr>
 
@@ -36,7 +37,7 @@
                                    id="Deadline">
                         </div>
                         <div class="form-group">
-                            <label for="User">User assigned</label>
+                            <label for="User">Assigned to</label>
                             <input type="text" class="form-control" name="User" placeholder="example: Mr umoru"
                                    id="User">
                         </div>
@@ -69,4 +70,32 @@
 
         </div>
     </section>
+
+    <script>
+
+        $('[type=submit]').on('click', function () {
+
+            $('form').submit(function (event){
+               //stop form from submitting regularly
+               event.preventDefault();
+            });
+
+            //get action
+            let actionFile = $('form').attr('action');
+
+            //Serialize form control values to be sent to the server
+            let formValues = $('form').serializeArray();
+            formValues.push({name: 'csrfmiddlewaretoken', value:$('input[name=csrfmiddlewaretoken]').val()});
+
+            //Send the form data using post
+            $.post(actionFile, formValues)
+            .done(function(success){
+                alert("Submit success!.");
+            })
+            .fail(function(error){
+                alert("Submission error");
+            });
+        });
+
+    </script>
 {% endblock %}
